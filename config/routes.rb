@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  root 'book_service/books#index'
   namespace :book_service, path: '/' do
     get 'books' => 'books#index'
     get 'books/:title' => 'books#show'
