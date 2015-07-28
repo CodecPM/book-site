@@ -1,0 +1,25 @@
+!!!
+/[if IE 8 ] <html class="ie ie8" lang="en">
+/[if (gte IE 9)|!(IE)] <html lang="en" class="no-js">
+%html{:lang => "en"}
+  %head
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://code.jquery.com/jquery-2.1.4.min.js', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://code.jquery.com/jquery-migrate-1.2.1.min.js', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', 'data-turbolinks-track' => true
+    /[if IE 8] <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    /[if lt IE 9] <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    /[if lt IE 9]  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.
+    = csrf_meta_tags
+  / /head
+  %body
+    -#= render partial: 'layouts/margo_header'
+    #wrapper
+      = yield
+    .books-footer-wrapper
+      = render 'layouts/book_service/books_footer'
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true

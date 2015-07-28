@@ -1,0 +1,15 @@
+.search-panel
+  .container
+    .row
+      .col-md-12.pull-right
+        .row
+          = form_tag  book_service_book_search_path, method: :get do
+            .col-md-6
+              = hidden_field_tag :authenticity_token, form_authenticity_token
+              .form-group
+                = text_field_tag :query, '', {class: 'form-control', placeholder: 'Enter book title(Ex: java)', autofocus: true}
+            .col-md-3
+              .form-group
+                = submit_tag "search", class: 'btn btn-primary pull-left search-submit'
+
+        .form-group

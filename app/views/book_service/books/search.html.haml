@@ -1,0 +1,41 @@
+.container
+  .row
+    .col-md-12
+      = render 'search_panel'
+.serach-results
+  .container
+    - if @books && !@books.empty?
+      - @books.each do |book|
+        .row
+          .col-md-3
+            .book-cover
+              %br
+              = link_to book_service_path(title: book.title, id: book.id) do
+                = image_tag book.image
+          .col-md-9
+            .book-desc
+              = link_to book_service_path(title: book.title, id: book.id),{class: 'book-link'} do
+                %h4
+                  = book.title
+              %p
+                = book.description
+              %span.bold
+                ISBN:
+              %small.bold
+                = book.isbn
+    - else
+      .p-a
+        %p No books found
+    .nav-links
+      .row
+        .col-md-3
+        .col-md-4
+          - if @has_prev
+            = link_to 'Previous', "/books/search/#{@query}/page/#{@current_page-1}",{class: 'btn btn-primary'}
+        .col-md-5
+          - if @has_next
+            = link_to "Next", "/books/search/#{@query}/page/#{@current_page+1}", {class: 'btn btn-primary pull-right'}
+
+-#- @books.each do |book|
+-#  %h2
+-#    = book.title

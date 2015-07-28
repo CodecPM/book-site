@@ -1,0 +1,49 @@
+.container
+  .row
+    .col-md-12
+      = render 'search_panel'
+
+.container
+  .slide-header
+    %h3 Programming Books
+  .row.book-self.p-t
+    .col-md-12
+      .programming.book-slider
+        - if !@prg_books.empty?
+          - @prg_books.each do |prg_book|
+            .book-block
+              =link_to book_service_path(title: prg_book.title, id: prg_book.id) do
+                = image_tag prg_book.image
+
+  .slide-header
+    %h3 Database Books
+  .row.book-self
+    .col-md-12
+      .databases.book-slider
+        - if !@prg_books.empty?
+          - @db_books.each do |db_book|
+            .book-block
+              =link_to book_service_path(title: db_book.title, id: db_book.id) do
+                = image_tag db_book.image
+
+  .slide-header
+    %h3 Javascript Books
+  .row.book-self
+    .col-md-12
+      .javascript.book-slider
+        - if !@prg_books.empty?
+          - @js_books.each do |js_book|
+            .book-block
+              =link_to book_service_path(title: js_book.title, id: js_book.id) do
+                = image_tag js_book.image
+
+  .slide-header
+    %h3 CSS Books
+  .row.book-self
+    .col-md-12
+      .css.book-slider
+        - if !@prg_books.empty?
+          - @css_books.each do |css_book|
+            .book-block
+              =link_to book_service_path(title: css_book.title, id: css_book.id) do
+                = image_tag css_book.image

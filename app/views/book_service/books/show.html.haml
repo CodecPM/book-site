@@ -1,0 +1,77 @@
+.container
+  .row
+    .col-md-12
+      = render 'search_panel'
+.book
+  .container
+    = puts @book.error
+    -if @book && @book.error == "0"
+      .book-header
+        %h2
+          = @book.title
+        %h5
+          = @book.sub_title
+      .row
+        .col-md-3
+          .book-cover
+            = image_tag @book.image
+        .col-md-6
+          .book-details-wrapper
+            .book-des
+              %h4 Description
+              = @book.description
+            .book-details
+              %h4 Book details
+              %table{border: '0', width: '100%', cellpadding: '5px', cellspacing: '2px'}
+                %body
+                  %tr
+                    %td
+                      Publisher
+                    %td
+                      = @book.publisher
+                  %tr
+                    %td
+                      Author
+                    %td
+                      = @book.author
+                  %tr
+                    %td
+                      ISBN
+                    %td
+                      = @book.isbn
+                  %tr
+                    %td
+                      Year
+                    %td
+                      = @book.year
+                  %tr
+                    %td
+                      Pages
+                    %td
+                      = @book.pages
+                  %tr
+                    %td
+                      %h4
+                        ebook
+                    %td
+
+                  %tr
+                    %td
+                      Download
+                    %td
+                      = link_to @book.title, @book.download_link,{class: 'book-link', target: '_blank'}
+                  %tr
+                    %td
+                      Paper book
+                    %td
+                      = link_to @book.title, "http://isbn.directory/book/#{@book.isbn}",{class: 'book-link', target: '_blank'}
+        .col-md-3
+    - else
+      %h2.text-danger
+        Book Not Found!!!
+
+
+-#%h2
+-#  = @book.title
+-#%p
+-#  = @book.sub_title
