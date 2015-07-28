@@ -8,4 +8,4 @@ slick plugin is used for scrolling books on index page.
 ##clone the project
  - $cd book-site
  - $bundle install
- -Then start the server <kbd>rails server</kbd>
+ - Then start the server <kbd>rails server</kbd>
