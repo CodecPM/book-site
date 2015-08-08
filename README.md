@@ -5,9 +5,9 @@ provide any url for list the books.
 
 slick plugin is used for scrolling books on index page.
 
-```ruby
-Demo available at: [http://www.codecpm.in](http://www.codecpm.in/books)
-```
+
+Demo available at: http://www.codecpm.in/books
+
 
 ##clone the project
  - $cd book-site
